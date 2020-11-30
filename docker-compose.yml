@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  db:
+    image: postgres:10
+    ports:
+    - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: actix
+      POSTGRES_USER: actix
+      POSTGRES_DB: todo
+    volumes:
+    - ./db/:/var/lib/postgresql/
+    - ./init.sql:/docker-entrypoint-initdb.d/init.sql
